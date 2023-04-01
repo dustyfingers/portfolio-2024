@@ -24,10 +24,10 @@ export default function Home() {
           enableZoom={false}
           enablePan={false}
           minPolarAngle={0}
-          maxPolarAngle={Math.PI / 2.5}
+          // maxPolarAngle={Math.PI / 2.5}
           makeDefault
         />
-        <Environment files="hdri/lakeside_1k.hdr" />
+        <Environment files="hdri/lakeside_1k.hdr" background />
       </Canvas>
     </main>
   );

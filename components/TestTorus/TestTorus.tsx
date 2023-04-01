@@ -12,7 +12,7 @@ const PageContainer: React.FC = () => {
   return (
     <mesh ref={torus}>
       <torusGeometry />
-      <meshStandardMaterial />
+      <meshPhysicalMaterial metalness={1} roughness={0} />
     </mesh>
   );
 };
