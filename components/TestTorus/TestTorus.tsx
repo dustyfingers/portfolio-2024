@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import { Color, Mesh, TextureLoader, RepeatWrapping, DoubleSide } from "three";
 
-const PageContainer: React.FC = () => {
+const TestTorus: React.FC = () => {
   const torus = useRef<Mesh>(new Mesh());
   const armMap = new TextureLoader().load(
     // "textures/concrete_floor_worn_001_arm_1k.jpg"
@@ -55,4 +55,4 @@ const PageContainer: React.FC = () => {
   );
 };
 
-export default PageContainer;
+export default TestTorus;
