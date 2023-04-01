@@ -45,6 +45,7 @@ const PageContainer: React.FC = () => {
       {/* a ball of honey */}
       <sphereGeometry />
       <meshPhysicalMaterial
+        roughness={0.01}
         ior={1.504}
         color={new Color(0.831, 0.397, 0.038)}
         transmission={0.95}
