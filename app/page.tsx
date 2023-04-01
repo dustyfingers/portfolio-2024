@@ -16,14 +16,14 @@ const inter = Inter({ subsets: ["latin"] });
 export default function Home() {
   return (
     <main className={styles.main}>
-      <Canvas>
+      <Canvas shadows>
         <PerspectiveCamera />
-        <ambientLight intensity={1} />
         <TestTorus />
         <OrbitControls
           enableZoom={false}
           enablePan={false}
           minPolarAngle={0}
+          // constrains y rotation
           // maxPolarAngle={Math.PI / 2.5}
           makeDefault
         />

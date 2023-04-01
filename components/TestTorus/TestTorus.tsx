@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
-import { Mesh } from "three";
+import { Color, Mesh } from "three";
 
 const PageContainer: React.FC = () => {
   const torus = useRef<Mesh>(new Mesh());
@@ -10,9 +10,16 @@ const PageContainer: React.FC = () => {
     }
   });
   return (
-    <mesh ref={torus}>
+    <mesh ref={torus} receiveShadow castShadow>
       <torusGeometry />
-      <meshPhysicalMaterial metalness={1} roughness={0} />
+      <meshPhysicalMaterial
+        roughness={0.1}
+        // attenuationDistance={0.001}
+        metalness={0.99}
+        specularColor={new Color(0.988, 0.976, 0.843)}
+        color={new Color(0.877, 0.789, 0.434)}
+        reflectivity={1}
+      />
     </mesh>
   );
 };
