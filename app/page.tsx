@@ -20,7 +20,7 @@ export default function Home() {
         <PerspectiveCamera />
         <TestTorus />
         <OrbitControls
-          enableZoom={false}
+          enableZoom={true}
           enablePan={false}
           minPolarAngle={0}
           // constrains y rotation
