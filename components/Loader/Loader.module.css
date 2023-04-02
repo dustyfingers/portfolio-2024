@@ -4,13 +4,13 @@
 }
 
 .ProgressIndicator {
-  background: lightsalmon;
-  height: 2rem;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  transform-origin: 0%;
+  height: 2rem;
+  background: lightcoral;
+  transform-origin: 50%;
 }
 
 .TextContainer {

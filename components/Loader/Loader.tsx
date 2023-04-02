@@ -8,13 +8,10 @@ import styles from "./Loader.module.css";
 const Loader: React.FC = () => {
   const { progress } = useProgress();
   const scaleX = useSpring(progress, {
-    stiffness: 100,
+    stiffness: 1000,
     damping: 30,
-    restDelta: 0.001,
+    mass: 0.25,
   });
-
-  console.log(scaleX);
-
   return (
     <div className={styles.LoaderContainer}>
       <motion.div className={styles.ProgressIndicator} style={{ scaleX }} />
