@@ -19,7 +19,7 @@ const TestTorus: React.FC = () => {
   return (
     <mesh ref={torus} receiveShadow castShadow>
       {/* a bronze ring */}
-      {/* <torusGeometry />
+      <torusGeometry />
       <meshPhysicalMaterial
         roughness={0.075}
         roughnessMap={armMap}
@@ -28,7 +28,7 @@ const TestTorus: React.FC = () => {
         specularColorMap={armMap}
         color={new Color(0.877, 0.789, 0.434)}
         reflectivity={1}
-      /> */}
+      />
 
       {/* a pane of glass */}
       {/* <planeGeometry />
@@ -43,14 +43,14 @@ const TestTorus: React.FC = () => {
       /> */}
 
       {/* a ball of honey */}
-      <sphereGeometry />
+      {/* <sphereGeometry />
       <meshPhysicalMaterial
         roughness={0.01}
         ior={1.504}
         color={new Color(0.831, 0.397, 0.038)}
         transmission={0.95}
         reflectivity={0.9}
-      />
+      /> */}
     </mesh>
   );
 };

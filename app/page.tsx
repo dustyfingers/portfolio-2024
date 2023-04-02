@@ -1,7 +1,7 @@
 "use client";
 
 import { Inter } from "next/font/google";
-import styles from "./page.module.scss";
+import styles from "./page.module.css";
 import { Canvas } from "@react-three/fiber";
 import {
   PerspectiveCamera,
@@ -10,7 +10,7 @@ import {
   Preload,
 } from "@react-three/drei";
 
-// import TestTorus from "@/components/TestTorus";
+import TestTorus from "@/components/TestTorus";
 import TropicalTree from "@/components/TropicalTree";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -20,6 +20,7 @@ export default function Home() {
     <main className={styles.main}>
       <Canvas shadows>
         <PerspectiveCamera />
+        <TestTorus />
         <TropicalTree />
         <OrbitControls
           enableZoom={true}
