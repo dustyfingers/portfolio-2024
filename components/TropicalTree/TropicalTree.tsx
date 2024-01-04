@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
-import { Group } from "three";
+import { Group, Vector3 } from "three";
 
 import { useGLTF } from "@react-three/drei";
 import { GLTF } from "three-stdlib";
@@ -18,7 +18,11 @@ type GLTFResult = GLTF & {
   };
 };
 
-const TropicalTree: React.FC = () => {
+interface ITropicalTree {
+  position: Vector3;
+}
+
+const TropicalTree: React.FC<ITropicalTree> = ({ position }: ITropicalTree) => {
   const tree = useRef<Group>(new Group());
   const { nodes, materials } = useGLTF(
     "objects/tropical_tree.glb"
@@ -29,7 +33,7 @@ const TropicalTree: React.FC = () => {
     }
   });
   return (
-    <group ref={tree} dispose={null}>
+    <group ref={tree} dispose={null} position={position}>
       <mesh
         geometry={nodes.mesh.geometry}
         material={materials.island_tree_02}

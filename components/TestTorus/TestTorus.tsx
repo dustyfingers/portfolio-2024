@@ -21,7 +21,7 @@ const TestTorus: React.FC = () => {
       {/* a bronze ring */}
       <torusGeometry />
       <meshPhysicalMaterial
-        roughness={0.075}
+        roughness={0.1}
         roughnessMap={armMap}
         metalness={0.99}
         specularColor={new Color(0.988, 0.976, 0.843)}

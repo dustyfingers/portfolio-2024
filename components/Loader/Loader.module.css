@@ -11,6 +11,7 @@
   height: 2rem;
   background: lightcoral;
   transform-origin: 50%;
+  border: 1px solid red;
 }
 
 .TextContainer {
@@ -19,5 +20,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid green;
+}
+
+.TypewriterWrapper {
+  font-size: 4rem;
+}
+
+.TypewriterCursor {
+  font-size: 4rem;
 }

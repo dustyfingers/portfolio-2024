@@ -7,18 +7,23 @@ import styles from "./Loader.module.css";
 
 const Loader: React.FC = () => {
   const { progress } = useProgress();
-  const scaleX = useSpring(progress, {
+  const progressSpring = useSpring(progress, {
     stiffness: 1000,
     damping: 30,
     mass: 0.25,
   });
   return (
     <div className={styles.LoaderContainer}>
-      <motion.div className={styles.ProgressIndicator} style={{ scaleX }} />
+      <motion.div
+        className={styles.ProgressIndicator}
+        style={{ opacity: progressSpring, scaleX: progressSpring }}
+      />
       <div className={styles.TextContainer}>
         <Typewriter
           options={{
-            strings: ["Loading..."],
+            wrapperClassName: styles.TypewriterWrapper,
+            cursorClassName: styles.TypewriterCursor,
+            strings: ["Loading your experience", "..."],
             autoStart: true,
             loop: true,
           }}

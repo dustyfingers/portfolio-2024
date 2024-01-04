@@ -6,7 +6,7 @@ import PageContainer from "@/components/PageContainer";
 
 export const metadata = {
   title: "Louie Williford | Software Engineer",
-  description: "Built with love in 2023 :)",
+  description: "Built with love in 2024 :)",
 };
 
 export default function RootLayout({
