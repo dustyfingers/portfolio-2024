@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useThree, useFrame, Vector3 } from "@react-three/fiber";
-import { useSpring } from "@react-spring/three";
+import { useSpring, animated, config } from "@react-spring/three";
 import { Globals } from "@react-spring/shared";
 import {
   PerspectiveCamera,
@@ -22,14 +22,15 @@ const Controls = () => {
   );
 };
 
+// this is stupid
 const positions: Vector3[][] = [
   [
     [-2, 0, 0],
     [-3, 0, 0],
   ],
   [
-    [0, -2, -3],
-    [0, -3, -4],
+    [0, 0, -3],
+    [0, 0, -4],
   ],
   [
     [2, 0, 0],
@@ -52,19 +53,17 @@ const LandingScene = ({ ...props }: ILandingScene) => {
   const { position } = useSpring({
     position: camTo as Vector3,
     from: { position: camFrom as Vector3 },
+    config: config.wobbly,
   });
 
-  const handleMeshClick = () => {};
-
-  useFrame(({ camera }) => {
-    camera.position.x = position.x;
-    camera.position.y = position.y;
-    camera.position.z = position.z;
-  });
+  const handleMeshClick = () => {
+    setCamFrom(camTo);
+    // setCamTo();
+  };
 
   return (
     <>
-      <PerspectiveCamera />
+      <animated.perspectiveCamera />
       <Controls />
       {/* animate camera to point at each of these meshes on click? */}
 
@@ -72,7 +71,7 @@ const LandingScene = ({ ...props }: ILandingScene) => {
         <Dodecahedron
           position={group[0]}
           camPoint={group[1]}
-          //   onClick={() => handleMeshClick()}
+          onClick={() => handleMeshClick()}
         />
       ))}
       <Environment files="hdri/lakeside_1k.hdr" background />
