@@ -1,3 +1,5 @@
+varying vec2 vUv;
+
 void main() {
   // 500.0 is an arbitrary value to "normalize"
   // my coordinate system
