@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useThree, Vector3 } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
+import { MapControls } from "@react-three/drei";
 import CameraRig from "@/components/3D/CameraRig";
 import LightRig from "@/components/3D/LightRig";
 import SceneTrees from "@/components/3D/Trees/SceneTrees";
@@ -8,9 +8,8 @@ import SceneTrees from "@/components/3D/Trees/SceneTrees";
 const Controls = () => {
   const { gl, camera } = useThree();
   return (
-    <OrbitControls
-      // autoRotate
-      target={[0, 0, 0]}
+    <MapControls
+      rotation={[Math.PI, 0, Math.PI]}
       args={[camera, gl.domElement]}
     />
   );
@@ -52,7 +51,7 @@ const LandingScene = ({ ...props }: ILandingScene) => {
 
   return (
     <>
-      <CameraRig />
+      {/* <CameraRig /> */}
       <Controls />
       <LightRig />
       <SceneTrees />
