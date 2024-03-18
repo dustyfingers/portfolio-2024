@@ -54,21 +54,9 @@ const LandingScene = ({ ...props }: ILandingScene) => {
     <>
       <CameraRig />
       <Controls />
-      {/* animate camera to point at each of these meshes on click? */}
-      {/* {positions.map((group) => (
-        <Dodecahedron
-          position={group[0]}
-          camPoint={group[1]}
-          onClick={() => handleMeshClick()}
-        />
-      ))} */}
       <LightRig />
-      {/* <TreeOne /> */}
-      {/* <TreeThree />
-      <TreeFour /> */}
-      {/* scene trees will generate 50 random trees  */}
       <SceneTrees />
-      <fog attach="fog" args={["white", 30, 400]} />
+      {/* <fog attach="fog" args={["white", 30, 400]} /> */}
     </>
   );
 };

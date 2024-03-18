@@ -2,6 +2,7 @@ import React, { useMemo } from "react";
 import * as THREE from "three";
 
 import TreeOne from "@/components/3D/Trees/TreeOne";
+import TreeFour from "@/components/3D/Trees/TreeFour";
 
 const SceneTrees = () => {
   const treePositions = useMemo(() => {
@@ -22,9 +23,13 @@ const SceneTrees = () => {
   }, []);
   return (
     <>
-      {treePositions.map(([position, scale]) => (
-        <TreeOne position={position} scale={scale} />
-      ))}
+      {treePositions.map(([position, scale], idx) =>
+        idx % 2 === 0 ? (
+          <TreeOne position={position} scale={scale} key={idx} />
+        ) : (
+          <TreeFour position={position} scale={scale} key={idx} />
+        )
+      )}
     </>
   );
 };
