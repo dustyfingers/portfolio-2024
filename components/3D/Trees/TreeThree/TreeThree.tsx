@@ -14,10 +14,7 @@ interface TreeProps {}
 
 const TreeThree = (props: JSX.IntrinsicElements["group"]) => {
   const group = useRef<THREE.Group>(null);
-  const { nodes, materials, animations } = useGLTF(
-    "/objects/TreeThree.glb"
-  ) as GLTFResult;
-  const { actions } = useAnimations(animations, group);
+  const { nodes } = useGLTF("/objects/TreeThree.glb") as GLTFResult;
   return (
     <group ref={group} {...props} dispose={null}>
       <mesh

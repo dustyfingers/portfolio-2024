@@ -1,14 +1,9 @@
 import { useState } from "react";
 import { useThree, Vector3 } from "@react-three/fiber";
-import { useSpring, animated, config } from "@react-spring/three";
-import { Globals } from "@react-spring/shared";
-import { Environment, Preload, OrbitControls } from "@react-three/drei";
-
-import Dodecahedron from "@/components/3D/Dodecahedron";
-import TreeOne from "@/components/3D/Trees/TreeOne";
-import TreeThree from "@/components/3D/Trees/TreeThree";
-import TreeFour from "@/components/3D/Trees/TreeFour";
+import { OrbitControls } from "@react-three/drei";
+import CameraRig from "@/components/3D/CameraRig";
 import LightRig from "@/components/3D/LightRig";
+import SceneTrees from "@/components/3D/Trees/SceneTrees";
 
 const Controls = () => {
   const { gl, camera } = useThree();
@@ -37,11 +32,6 @@ const positions: Vector3[][] = [
   ],
 ];
 
-// fix rafz frameloop issue
-Globals.assign({
-  frameLoop: "always",
-});
-
 interface ILandingScene {}
 const LandingScene = ({ ...props }: ILandingScene) => {
   // imperitavely animate camera here?
@@ -62,8 +52,7 @@ const LandingScene = ({ ...props }: ILandingScene) => {
 
   return (
     <>
-      {/* <animated.perspectiveCamera /> */}
-      {/* <CameraRig /> */}
+      <CameraRig />
       <Controls />
       {/* animate camera to point at each of these meshes on click? */}
       {/* {positions.map((group) => (
@@ -74,11 +63,11 @@ const LandingScene = ({ ...props }: ILandingScene) => {
         />
       ))} */}
       <LightRig />
-      <TreeOne />
-      <TreeThree />
-      <TreeFour />
+      {/* <TreeOne /> */}
+      {/* <TreeThree />
+      <TreeFour /> */}
       {/* scene trees will generate 50 random trees  */}
-      {/* <SceneTrees /> */}
+      <SceneTrees />
     </>
   );
 };
