@@ -1,15 +1,14 @@
 import { useState } from "react";
-import { useThree, useFrame, Vector3 } from "@react-three/fiber";
+import { useThree, Vector3 } from "@react-three/fiber";
 import { useSpring, animated, config } from "@react-spring/three";
 import { Globals } from "@react-spring/shared";
-import {
-  PerspectiveCamera,
-  Environment,
-  Preload,
-  OrbitControls,
-} from "@react-three/drei";
+import { Environment, Preload, OrbitControls } from "@react-three/drei";
 
 import Dodecahedron from "@/components/3D/Dodecahedron";
+import TreeOne from "@/components/3D/Trees/TreeOne";
+import TreeThree from "@/components/3D/Trees/TreeThree";
+import TreeFour from "@/components/3D/Trees/TreeFour";
+import LightRig from "@/components/3D/LightRig";
 
 const Controls = () => {
   const { gl, camera } = useThree();
@@ -50,11 +49,11 @@ const LandingScene = ({ ...props }: ILandingScene) => {
   const [camTo, setCamTo] = useState(positions[0][1]);
   const [camFrom, setCamFrom] = useState(positions[2][1]);
 
-  const { position } = useSpring({
-    position: camTo as Vector3,
-    from: { position: camFrom as Vector3 },
-    config: config.wobbly,
-  });
+  // const { position } = useSpring({
+  //   position: camTo as Vector3,
+  //   from: { position: camFrom as Vector3 },
+  //   config: config.wobbly,
+  // });
 
   const handleMeshClick = () => {
     setCamFrom(camTo);
@@ -63,19 +62,23 @@ const LandingScene = ({ ...props }: ILandingScene) => {
 
   return (
     <>
-      <animated.perspectiveCamera />
+      {/* <animated.perspectiveCamera /> */}
+      {/* <CameraRig /> */}
       <Controls />
       {/* animate camera to point at each of these meshes on click? */}
-
-      {positions.map((group) => (
+      {/* {positions.map((group) => (
         <Dodecahedron
           position={group[0]}
           camPoint={group[1]}
           onClick={() => handleMeshClick()}
         />
-      ))}
-      <Environment files="hdri/lakeside_1k.hdr" background />
-      <Preload all />
+      ))} */}
+      <LightRig />
+      <TreeOne />
+      <TreeThree />
+      <TreeFour />
+      {/* scene trees will generate 50 random trees  */}
+      {/* <SceneTrees /> */}
     </>
   );
 };
