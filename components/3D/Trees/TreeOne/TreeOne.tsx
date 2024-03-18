@@ -17,10 +17,10 @@ type GLTFResult = GLTF & {
 
 const TreeOne = (props: TreeProps) => {
   const group = useRef<THREE.Group>(null);
+  const treeTopMesh = useRef<THREE.Mesh>(null);
   const { nodes, materials, animations } = useGLTF(
     "/objects/TreeOne.glb"
   ) as GLTFResult;
-  const { actions } = useAnimations(animations, group);
   return (
     <group
       name="Tree_1"
@@ -38,11 +38,12 @@ const TreeOne = (props: TreeProps) => {
         <TreeTrunkMaterial />
       </mesh>
       <mesh
+        ref={treeTopMesh}
         name="Tree_1_2"
         geometry={nodes.Tree_1_2.geometry}
         material={nodes.Tree_1_2.material}
       >
-        <TreeTopMaterial />
+        <TreeTopMaterial meshRef={treeTopMesh} />
       </mesh>
     </group>
   );

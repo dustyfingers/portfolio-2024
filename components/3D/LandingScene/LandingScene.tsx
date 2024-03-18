@@ -9,7 +9,7 @@ const Controls = () => {
   const { gl, camera } = useThree();
   return (
     <OrbitControls
-      autoRotate
+      // autoRotate
       target={[0, 0, 0]}
       args={[camera, gl.domElement]}
     />
@@ -68,7 +68,7 @@ const LandingScene = ({ ...props }: ILandingScene) => {
       <TreeFour /> */}
       {/* scene trees will generate 50 random trees  */}
       <SceneTrees />
-      <fog attach="fog" args={["white", 1, 500]} />
+      <fog attach="fog" args={["white", 30, 400]} />
     </>
   );
 };
