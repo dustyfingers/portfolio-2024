@@ -68,6 +68,7 @@ const LandingScene = ({ ...props }: ILandingScene) => {
       <TreeFour /> */}
       {/* scene trees will generate 50 random trees  */}
       <SceneTrees />
+      <fog attach="fog" args={["white", 1, 500]} />
     </>
   );
 };

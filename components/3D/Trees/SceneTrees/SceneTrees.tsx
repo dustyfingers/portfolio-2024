@@ -10,9 +10,9 @@ const SceneTrees = () => {
       const scale = Math.random() * 3;
       positions.push([
         new THREE.Vector3(
-          (Math.random() - 0.5) * 100,
+          (Math.random() - 0.5) * 1000,
           0,
-          (Math.random() - 0.5) * 100
+          (Math.random() - 0.5) * 1000
         ),
         new THREE.Vector3(scale, scale, scale),
       ]);
